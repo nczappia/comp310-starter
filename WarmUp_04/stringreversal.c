@@ -10,4 +10,6 @@ int main()
 	reversed[str_length - 1 - i] = str[i];
     }
     printf("Reversed String: %s\n", reversed);
+
+    return 0;
 }

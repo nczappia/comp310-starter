@@ -13,5 +13,7 @@ int main()
 
 	printf("Sum: %d\n", sum);
 	printf("Average: %f\n", average);
+
+	return 0;
 }
 
