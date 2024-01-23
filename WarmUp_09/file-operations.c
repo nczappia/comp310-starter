@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -25,5 +26,7 @@ int main()
 
     fgets(buffer, 14, fptr);
    
-     
+    printf("%s\n", buffer);
+
+    fclose(fptr);
 }
