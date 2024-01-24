@@ -6,7 +6,6 @@ void push(struct LinkedList *llist, int new_data)
 {
     //Create new node
     struct Node *new_node = (struct Node*)malloc(sizeof(struct Node));
-
     //Check for memory allocation failure with malloc
     if (new_node == NULL){
 	printf("Memory Allocation Failed.\n");
@@ -19,6 +18,7 @@ void push(struct LinkedList *llist, int new_data)
 
     //Change the assigned head node in the linked list to the new node
     llist->head = new_node; 
+    //printf("Node Address: %p\n", (void*)new_node);
 }
 
 void deleteNode(struct LinkedList *llist, int key)
@@ -52,7 +52,7 @@ void deleteNode(struct LinkedList *llist, int key)
 void printList(struct LinkedList *llist)
 {
     struct Node *tnode = llist->head;
-   
+    printf("yo"); 
     while(tnode != NULL)
     {
         printf("%d ", tnode->data);
@@ -66,12 +66,10 @@ int main()
 {
     struct LinkedList llist;
     
-    struct Node firstNode = {5, NULL};
-    llist.head = &firstNode;
-    
+    push(&llist, 5); 
     push(&llist, 8);
     push(&llist, 10);
-    
+    printf("Made it");    
     printList(&llist); 
 
     deleteNode(&llist, 8);
