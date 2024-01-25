@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+int main(int argc, char *argv[])
 {
     char str[] = "Hello";
     int str_length = sizeof(str) - 1;

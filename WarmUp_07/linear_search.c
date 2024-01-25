@@ -9,7 +9,7 @@ int linearSearch(int arr[], int arr_length, int target)
     return -1;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     int array[] = {1, 4, 7, 9, 12};
     int target = 9;
@@ -19,4 +19,6 @@ int main()
 	printf("Element found at index: %d\n", index);
     else
 	printf("Element not found\n");
+
+    return 0;
 }

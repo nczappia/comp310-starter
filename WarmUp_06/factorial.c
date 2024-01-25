@@ -10,7 +10,7 @@ int factorial(int n)
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
     int number = 5;
     printf("Factorial of %d is %d\n", number, factorial(number));

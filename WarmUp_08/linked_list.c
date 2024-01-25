@@ -53,7 +53,7 @@ void printList(struct LinkedList *llist)
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
     struct LinkedList llist;
     llist.head = NULL;
@@ -71,4 +71,6 @@ int main()
     printf("\nLinked List after Deletion of 1: \n"); 
     printList(&llist);  
     printf("\n"); 
+
+    return 0;
 }

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+int main(int argc, char *argv[])
 {
 	int numbers[5] = {1, 2, 3, 4, 5};
 	int sum = 0;
