@@ -15,61 +15,56 @@ void push(struct LinkedList *llist, int new_data)
     //Set new node's data value and next address
     new_node->data = new_data;
     new_node->next = llist->head;
-
+    printf("%d Address: %p\t%d Next: %p\n", new_node->data, new_node, new_node->data, new_node->next);
     //Change the assigned head node in the linked list to the new node
-    printf("Head: %p\n", llist->head);    
+    //printf("Head: %p\n", llist->head);    
     llist->head = new_node; 
     printf("Head: %p\n", llist->head);    
     printf("Node Address: %p\n", (void*)new_node);
-    printf("Made through\n");
+    //printf("Made through\n");
 }
 
 void deleteNode(struct LinkedList *llist, int key)
 {
     //Begin at head node
-    printf("Deleting...\n");
     struct Node *temp = llist->head, *prev = NULL;
-    printf("Temp Address: %p\tPrevious Address: %p\n", (void*)temp, (void*)prev);
+    //printf("Temp Address: %p\tPrevious Address: %p\n", (void*)temp, (void*)prev);
     //Check if head node contains matching value
     if(temp != NULL && temp->data == key){
         llist->head = temp->next;
     }
     //Iterate through list until matching value or end of list
     int count = 1;
-    while(temp != NULL){
-	if(temp->data == key){
-	    printf("Found\n");
-	    break;
-	}
-        printf("Temp: %p\tData: %d\tKey: %d\t\n", temp, temp->data, key);
+    while(temp != NULL && temp->data != key){
+        //printf("Temp: %p\tData: %d\tKey: %d\t\n", temp, temp->data, key);
  	prev = temp;
 	temp = temp->next;
-        printf("Iteration %d:\n", count);
-     	printf("Temp Address: %p\tPrevious Address: %p\n", (void*)temp, (void*)prev);
-	printf("Finished Iteration %d\n", count);
+        //printf("Iteration %d:\n", count);
+     	//printf("Temp Address: %p\tPrevious Address: %p\n", (void*)temp, (void*)prev);
+	//printf("Finished Iteration %d\n", count);
         count++;	
-        printf("Up next...\nTemp: %p\tData: %d\tKey: %d\t\n", temp, temp->data, key);
+        //printf("Up next...\nTemp: %p\tData: %d\tKey: %d\t\n", temp, temp->data, key);
     }
-    printf("Found 8\n");
+    //printf("Found 8\n");
     //If end of list found, do nothing
     if(temp == NULL){
         return;
     }
-    printf("Through NULL check\n");
+    //printf("Through NULL check\n");
     //If matching value found, delete the node and reassign next addresses
     prev->next = temp->next;
-    printf("8 removed\n");
     free(temp);
 }
 
 void printList(struct LinkedList *llist)
 {
-    printf("IN"); 
     struct Node *tnode = llist->head;
-    while(tnode->next != NULL)
+    int count = 0;
+    while(tnode != NULL && count < 3)
     {
         printf("%d ", tnode->data);
-        tnode = tnode->next;
+        count++;
+	tnode = tnode->next;
     }
     printf("\n");    
 }
@@ -78,16 +73,18 @@ void printList(struct LinkedList *llist)
 int main()
 {
     struct LinkedList llist;
+    llist.head = NULL;
     
-    printf("Starting...\n");
-    push(&llist, 5); 
-    push(&llist, 8);
-    push(&llist, 10);
-    printf("Made it\n");
-    printf("Head: %p\n", llist.head);    
+    push(&llist, 7); 
+    push(&llist, 1);
+    push(&llist, 3);
+    push(&llist, 2);
+
+    printf("\nCreating Linked list is:\n");
     printList(&llist); 
 
-    deleteNode(&llist, 8);
-    
-    //printList(&llist);   
+    deleteNode(&llist, 1);
+   
+    printf("\nLinked List after Deletion of 1:"); 
+    printList(&llist);   
 }
