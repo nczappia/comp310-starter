@@ -17,7 +17,9 @@ void push(struct LinkedList *llist, int new_data)
     new_node->next = llist->head;
 
     //Change the assigned head node in the linked list to the new node
+    printf("Head: %p\n", llist->head);    
     llist->head = new_node; 
+    printf("Head: %p\n", llist->head);    
     printf("Node Address: %p\n", (void*)new_node);
     printf("Made through\n");
 }
@@ -81,7 +83,8 @@ int main()
     push(&llist, 5); 
     push(&llist, 8);
     push(&llist, 10);
-    printf("Made it\n");    
+    printf("Made it\n");
+    printf("Head: %p\n", llist.head);    
     printList(&llist); 
 
     deleteNode(&llist, 8);
