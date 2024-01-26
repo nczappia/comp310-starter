@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linked-list.h"
+
+struct LinkedList {
+    struct Node{
+	int data;
+	struct Node *next;
+    } *head;
+};
 
 void push(struct LinkedList *llist, int new_data)
 {
